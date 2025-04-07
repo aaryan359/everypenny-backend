@@ -3,7 +3,6 @@ import  express  from "express";
 
 
 
-// initialized new app from express
 const app = express();
 
 
