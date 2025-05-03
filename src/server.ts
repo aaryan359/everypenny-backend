@@ -1,5 +1,5 @@
 import  express  from "express";
-
+import connectDB from "./config/db";
 
 
 
@@ -9,6 +9,14 @@ const app = express();
 
 
 app.use(express.json());
+
+
+
+
+
+
+// connnect to db
+connectDB();
 
 
 
