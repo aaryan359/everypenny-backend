@@ -4,8 +4,9 @@ import helmet from "helmet";
 import morgan from "morgan";
 import rateLimit from "express-rate-limit";
 import dotenv from "dotenv";
-import authRouter from "./routes/userRoutes";
 dotenv.config();
+import authRouter from "./routes/userRoutes";
+import transactionRoutes from "./routes/transactionRoutes";
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.get("/health", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1", transactionRoutes);
 
 app.use(
   (

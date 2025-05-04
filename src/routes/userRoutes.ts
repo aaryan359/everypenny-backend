@@ -5,7 +5,6 @@ import { registerSchema } from "../validations/authValidations";
 
 const router = Router();
 
-// POST /api/auth/register
 router.post("/register", register);
 router.post("/login", login);
 

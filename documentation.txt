@@ -1,0 +1,30 @@
+user ollama model in future that will be good 
+// utils/emojiGenerator.ts
+import ollama from 'ollama';
+
+export const generateAIEmoji = async (title: string): Promise<string> => {
+  try {
+    const response = await ollama.chat({
+      model: 'llama3', // or 'mistral'
+      messages: [
+        { 
+          role: 'system', 
+          content: 'Respond with ONLY ONE emoji for this transaction title:' 
+        },
+        { 
+          role: 'user', 
+          content: title 
+        }
+      ],
+      options: {
+        temperature: 0.7,
+        num_predict: 4 // Limit output length
+      }
+    });
+    
+    return response.message.content.trim() || "💰";
+  } catch (error) {
+    console.error("Ollama error:", error);
+    return "💰";
+  }
+};

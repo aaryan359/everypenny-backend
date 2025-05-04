@@ -16,7 +16,6 @@ const TransactionSchema = new mongoose.Schema(
     type: {
       type: String,
       enum: ["credit", "debit"],
-      required: true,
     },
 
     title: {
@@ -46,7 +45,6 @@ const TransactionSchema = new mongoose.Schema(
       type: String,
       enum: ["UPI", "credit_card", "debit_card", "cash", "other"],
       default: "UPI",
-      required: true,
     },
     transactionDate: {
       type: Date,
